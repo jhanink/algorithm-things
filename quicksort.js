@@ -1,4 +1,4 @@
-
+// quicksort
 var quicksort = function(a) {
   var left=0,right=a.length-1,pivot=Math.floor(right/2);
   if (right-left < 1) return a;
@@ -20,6 +20,7 @@ var quicksort = function(a) {
   return quicksort(a.slice(0,left)).concat(quicksort(a.slice(left,a.length)));
 }
 
+// ----------  test
 var randarray = function(arr, n) {
   if (n===0) return arr;
   arr.push(Math.floor(Math.random()*100000));
