@@ -2,12 +2,13 @@
 var quicksort = function(a) {
   var pivot = a[Math.floor(a.length/2)];
   var lt=[], gt=[], eq=[];
+  if (a.length <= 1) return a;
   for (var i=0;i<a.length;i++) {
     if (a[i]<pivot) lt.push(a[i]);
     if (a[i]==pivot) eq.push(pivot);
     if (a[i]>pivot) gt.push(a[i]);
   }
-  return lt.sort().concat(eq, gt.sort());
+  return quicksort(lt).concat(eq, quicksort(gt));
 }
 
 // ---------- test
