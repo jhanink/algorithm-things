@@ -24,14 +24,13 @@ var merge = function(left, right) {
 
 // --- merge sort
 var mergesort = function(a) {
-  var ms = function (a, low, high) {
+  return (function ms(a, low, high) {
     if (low === high) return [a[low]];
     var half = parseInt((high-low)/2);
-    var left = ms(a,low, low+half);
+    var left = ms(a, low, low+half);
     var right = ms(a, low+half+1, high);
-    return merge(left,right);
-  };
-  return ms(a,0,a.length-1);
+    return merge(left, right);
+  })(a, 0, a.length-1);
 }
 
 // ---------- test
