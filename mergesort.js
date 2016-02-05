@@ -2,7 +2,8 @@
 // NOTE: this impl avoids resizing the result array
 // and creating partial copies that would be incurred
 // when using native push() and slice().
-// This gives about 2x gain, mostly from nixing slice()
+// This has a 4x advantage over the compact version,
+// mostly from nixing slice()
 var merge = function(left, right) {
   var result = new Array(left.length+right.length);
   var L=0,R=0,idx=0;
@@ -38,7 +39,7 @@ var randarray = function(arr, n) {
   arr.push(Math.floor(Math.random()*100000));
   return randarray(arr, n-1);
 }
-//console.log(fn(randarray([],20)));
+console.log(fn(randarray([],20)));
 var data = randarray([], 10000);
 setTimeout(function() {
   var start = new Date().getTime();
