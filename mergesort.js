@@ -2,7 +2,7 @@
 // NOTE: this impl avoids resizing the result array
 // and creating partial copies that would be incurred
 // when using native push(), shift(), and slice().
-// This has a 4x advantage over the compact version.
+// This has an 8x advantage over the compact version.
 var merge = function(left, right) {
   var result = new Array(left.length+right.length);
   var L=0,R=0,idx=0;
@@ -24,11 +24,14 @@ var merge = function(left, right) {
 
 // --- merge sort
 var mergesort = function(a) {
-  if (a.length <= 1) return a;
-  var half = parseInt(a.length/2);
-  var left = mergesort(a.slice(0,half));
-  var right = mergesort(a.slice(half,a.length));
-  return merge(left,right);
+  var ms = function (a, low, high) {
+    if (low === high) return [a[low]];
+    var half = parseInt((high-low)/2);
+    var left = ms(a,low, low+half);
+    var right = ms(a, low+half+1, high);
+    return merge(left,right);
+  };
+  return ms(a,0,a.length-1);
 }
 
 // ---------- test
