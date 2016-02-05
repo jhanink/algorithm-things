@@ -25,17 +25,18 @@ var mergesort = function(a) {
 
 
 // ---------- test
+var fn = mergesort
 var randarray = function(arr, n) {
   if (n===0) return arr;
   arr.push(Math.floor(Math.random()*100000));
   return randarray(arr, n-1);
 }
-console.log(mergesort(randarray([],20)));
+console.log(fn(randarray([],20)));
 var data = randarray([], 10000);
 setTimeout(function() {
   var start = new Date().getTime();
   for (var i=0;i<20;i++) {
-    mergesort(data);
+    fn(data);
   }
   console.log(new Date().getTime()-start);
 }, 500);

@@ -12,12 +12,18 @@ var quicksort = function(a) {
 }
 
 // ---------- test
+var fn = quicksort
 var randarray = function(arr, n) {
   if (n===0) return arr;
   arr.push(Math.floor(Math.random()*100000));
   return randarray(arr, n-1);
 }
-
-var a = new Date().getTime();
-console.log(quicksort(randarray([], 10000)))
-console.log("time:", new Date().getTime()-a)
+console.log(fn(randarray([],20)));
+var data = randarray([], 10000);
+setTimeout(function() {
+  var start = new Date().getTime();
+  for (var i=0;i<20;i++) {
+    fn(data);
+  }
+  console.log(new Date().getTime()-start);
+}, 500);
