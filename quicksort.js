@@ -1,4 +1,7 @@
-// quicksort
+// --- quicksort
+// NOTE: the swap step copies using a temp var
+// while cute, using splice is far less efficient
+//   a[left] = a.splice(right,1,a[left])[0]
 var quicksort = function(a) {
   var left=0,right=a.length-1,pivot=a[Math.floor(right/2)];
   if (a.length <= 1) return a;
@@ -7,7 +10,9 @@ var quicksort = function(a) {
     while(a[left] < pivot) left++;
     while(a[right] > pivot) right--;
     if (left <= right) {
-      a[left] = a.splice(right,1,a[left])[0]; // swap
+      var temp = a[left];
+      a[left] = a[right];
+      a[right] = temp;
       left++;
       right--;
     }
