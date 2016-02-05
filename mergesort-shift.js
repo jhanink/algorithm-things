@@ -1,4 +1,6 @@
-// merge helper function
+// --- merge helper function
+// NOTE: this is a compact version that is less
+// efficient than the "optimized" version by about 4x
 var merge = function(left, right) {
   var result = [];
   while (left.length>0 && right.length>0) {
@@ -7,7 +9,7 @@ var merge = function(left, right) {
   return result.concat(left, right);
 }
 
-// merge sort
+// --- merge sort
 var mergesort = function(a) {
   if (a.length <= 1) return a;
   var half = parseInt(a.length/2);
@@ -15,7 +17,6 @@ var mergesort = function(a) {
   var right = mergesort(a.slice(half,a.length));
   return merge(left,right);
 }
-
 
 // ---------- test
 var randarray = function(arr, n) {
