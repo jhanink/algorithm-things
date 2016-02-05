@@ -31,7 +31,6 @@ var mergesort = function(a) {
   return merge(left,right);
 }
 
-
 // ---------- test
 var fn = mergesort
 var randarray = function(arr, n) {
