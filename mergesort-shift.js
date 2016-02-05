@@ -1,17 +1,10 @@
 // merge helper function
 var merge = function(left, right) {
   var result = [];
-  var L=0;R=0;
-  while (L < left.length && R < right.length) {
-    if (left[L] < right[R]) {
-      result.push(left[L]);
-      L++;
-    } else {
-      result.push(right[R]);
-      R++;
-    }
+  while (left.length>0 && right.length>0) {
+    result.push(left[0]<right[0]?left.shift():right.shift());
   }
-  return result.concat(left.slice(L,left.length), right.slice(R,right.length));
+  return result.concat(left).concat(right);
 }
 
 // merge sort
