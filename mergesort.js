@@ -3,26 +3,28 @@
 // when using native push(), shift(), and slice().
 // This has an 8x advantage over the compact version.
 
+// --- merge helper
+var merge = function(left, right) {
+  var result = new Array(left.length+right.length);
+  var L=0,R=0,idx=0;
+  while (L < left.length && R < right.length) {
+    if (left[L] < right[R]) {
+      result[idx++] = left[L++];
+    } else {
+      result[idx++] = right[R++];
+    }   
+  }
+  for (var i=L;i<left.length;i++) {
+    result[idx++] = left[i];
+  }
+  for (var i=R;i<right.length;i++) {
+    result[idx++] = right[i];
+  }
+  return result;
+}
+
 // --- merge sort
 var mergesort = function(a) {
-  var merge = function(left, right) {
-    var result = new Array(left.length+right.length);
-    var L=0,R=0,idx=0;
-    while (L < left.length && R < right.length) {
-      if (left[L] < right[R]) {
-        result[idx++] = left[L++];
-      } else {
-        result[idx++] = right[R++];
-      }   
-    }
-    for (var i=L;i<left.length;i++) {
-      result[idx++] = left[i];
-    }
-    for (var i=R;i<right.length;i++) {
-      result[idx++] = right[i];
-    }
-    return result;
-  }
   return (function ms(a, low, high) {
     if (low === high) return [a[low]];
     var half = parseInt((high-low)/2);
