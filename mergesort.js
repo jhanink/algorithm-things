@@ -1,9 +1,8 @@
 // --- merge helper function
 // NOTE: this impl avoids resizing the result array
 // and creating partial copies that would be incurred
-// when using native push() and slice().
-// This has a 4x advantage over the compact version,
-// mostly from nixing slice()
+// when using native push(), shift(), and slice().
+// This has a 4x advantage over the compact version.
 var merge = function(left, right) {
   var result = new Array(left.length+right.length);
   var L=0,R=0,idx=0;
