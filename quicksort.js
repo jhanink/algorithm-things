@@ -1,7 +1,7 @@
 // quicksort
 var quicksort = function(a) {
   var left=0,right=a.length-1,pivot=a[Math.floor(right/2)];
-  if (right-left < 1) return a;
+  if (a.length <= 1) return a;
   // partition
   while (left < right) {
     while(a[left] < pivot) {
