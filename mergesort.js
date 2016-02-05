@@ -1,20 +1,28 @@
-// merge helper function
+// --- merge helper function
+// NOTE: this impl avoids resizing the result array
+// and creating partial copies that would be incurred
+// when using native push() and slice()
+// Doing this gives about 2x performance gain.
 var merge = function(left, right) {
-  var result = [];
-  var L=0;R=0;
+  var result = new Array(left.length+right.length);
+  var L=0,R=0,idx=0;
   while (L < left.length && R < right.length) {
     if (left[L] < right[R]) {
-      result.push(left[L]);
-      L++;
+      result[idx++] = left[L++];
     } else {
-      result.push(right[R]);
-      R++;
+      result[idx++] = right[R++];
     }
   }
-  return result.concat(left.slice(L,left.length), right.slice(R,right.length));
+  for (var i=L;i<left.length;i++) {
+    result[idx++] = left[i];
+  }
+  for (var i=R;i<right.length;i++) {
+    result[idx++] = right[i];
+  }
+  return result;
 }
 
-// merge sort
+// --- merge sort
 var mergesort = function(a) {
   if (a.length <= 1) return a;
   var half = parseInt(a.length/2);
