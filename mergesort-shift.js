@@ -4,7 +4,7 @@ var merge = function(left, right) {
   while (left.length>0 && right.length>0) {
     result.push(left[0]<right[0]?left.shift():right.shift());
   }
-  return result.concat(left).concat(right);
+  return result.concat(left, right);
 }
 
 // merge sort
