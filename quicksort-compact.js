@@ -1,13 +1,13 @@
 // quicksort
 var quicksort = function(a) {
+  if (a.length <= 1) return a;
   var pivot = a[Math.floor(a.length/2)];
   var lt=[], gt=[], eq=[];
-  if (a.length <= 1) return a;
-  for (var i=0;i<a.length;i++) {
-    if (a[i]<pivot) lt.push(a[i]);
-    if (a[i]==pivot) eq.push(pivot);
-    if (a[i]>pivot) gt.push(a[i]);
-  }
+  a.forEach(function(item) {
+    if (item<pivot) lt.push(item);
+    if (item==pivot) eq.push(item);
+    if (item>pivot) gt.push(item);
+  })
   return quicksort(lt).concat(eq, quicksort(gt));
 }
 
