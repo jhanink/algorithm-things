@@ -4,12 +4,8 @@ var quicksort = function(a) {
   if (a.length <= 1) return a;
   // partition
   while (left < right) {
-    while(a[left] < pivot) {
-      left++;
-    }
-    while(a[right] > pivot) {
-      right--;
-    }
+    while(a[left] < pivot) left++;
+    while(a[right] > pivot) right--;
     if (left <= right) {
       a[left] = a.splice(right,1,a[left])[0]; // swap
       left++;
