@@ -38,7 +38,7 @@ var randarray = function(arr, n) {
   arr.push(Math.floor(Math.random()*100000));
   return randarray(arr, n-1);
 }
-console.log(fn(randarray([],20)));
+//console.log(fn(randarray([],20)));
 var data = randarray([], 10000);
 setTimeout(function() {
   var start = new Date().getTime();
