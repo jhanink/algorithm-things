@@ -1,16 +1,16 @@
 // quicksort
 var quicksort = function(a) {
-  var left=0,right=a.length-1,pivot=Math.floor(right/2);
+  var left=0,right=a.length-1,pivot=a[Math.floor(right/2)];
   if (right-left < 1) return a;
   // partition
   while (left < right) {
-    while(a[left]<a[pivot]) {
+    while(a[left] < pivot) {
       left++;
     }
-    while(a[right]>a[pivot]) {
+    while(a[right] > pivot) {
       right--;
     }
-    if (left<=right) {
+    if (left <= right) {
       a[left] = a.splice(right,1,a[left])[0]; // swap
       left++;
       right--

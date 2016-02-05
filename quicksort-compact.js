@@ -4,9 +4,9 @@ var quicksort = function(a) {
   var pivot = a[Math.floor(a.length/2)];
   var lt=[], gt=[], eq=[];
   a.forEach(item => {
-    if (item<pivot) lt.push(item);
-    if (item==pivot) eq.push(item);
-    if (item>pivot) gt.push(item);
+    if (item < pivot) lt.push(item);
+    if (item == pivot) eq.push(item);
+    if (item > pivot) gt.push(item);
   })
   return quicksort(lt).concat(eq, quicksort(gt));
 }
