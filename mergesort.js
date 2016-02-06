@@ -35,7 +35,7 @@ var mergesort = function(a) {
 }
 
 // ---------- test
-var fn = mergesort
+var fn = mergesort;
 var randarray = function(arr, n) {
   if (n===0) return arr;
   arr.push(Math.floor(Math.random()*100000));
