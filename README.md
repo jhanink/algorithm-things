@@ -6,6 +6,8 @@ Quicksort has two steps
 * Partitioning
 * Sorting
 
-`Partitioning` is the act of "sorting" data to the left and right of of a pivot point. More specifically, it rearranges data such that values on the left are "less than" the pivot value, and values on the right are "greater". This effectively defines two collections, Left, Right, containing members that are less than and greater than the pivot, respectively. The collections are not internally sorted.
+`Partitioning` an array is the act of moving data around a chosen Pivot. Specifically, it rearranges data so that Left <= Pivot <= Right. The result is that the Pivot is "sorted" with respect to Left and Right, but the Left and Right sides are not themselves sorted. 
 
+This is then repeated on the Left and Right subarrays.
 
+This process of recursive partitioning results in a fully sorted array.
