@@ -8,3 +8,5 @@ Quicksort is a divide-and-conquer algorithm that repeatedly "sorts" pivot values
 
 * [quicksort - efficient](https://github.com/jhanink/code-samples/blob/master/quicksort.js)
 * [quicksort - compact](https://github.com/jhanink/code-samples/blob/master/quicksort-compact.js)
+
+## `merge sort`
