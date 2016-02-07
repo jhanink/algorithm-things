@@ -15,7 +15,7 @@ var mergesort = function(a) {
   var half = parseInt(a.length/2);
   var left = mergesort(a.slice(0,half));
   var right = mergesort(a.slice(half,a.length));
-  return merge(left,right);
+  return merge(left, right);
 }
 
 // ---------- test
