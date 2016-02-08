@@ -14,7 +14,15 @@ var quicksort = function(a) {
       right--;
     }
   }
-  return quicksort(a.slice(0,left)).concat(quicksort(a.slice(left,a.length)));
+  var aLeft = new Array(left);
+  var aRight = new Array(a.length-left);
+  for (var i=0;i<left;i++) {
+    aLeft[i] = a[i];
+  }
+  for (var i=left;i<a.length;i++) {
+    aRight[i-left] = a[i];
+  }
+  return quicksort(aLeft).concat(quicksort(aRight));
 }
 
 // ----------  test
