@@ -1,4 +1,4 @@
-# Code Samples
+# Algorithm Things
 
 ## `quicksort`
 
