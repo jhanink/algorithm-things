@@ -1,6 +1,7 @@
-// --- merge helper function
-// NOTE: this is a compact version that is less
-// efficient than the "optimized" version by about 4x
+// NOTE: this compact version is less efficient
+// the "regular" version by about 8x
+
+// --- merge helper
 var merge = function(left, right) {
   var result = [];
   while (left.length>0 && right.length>0) {
