@@ -10,3 +10,8 @@ Quicksort is a divide-and-conquer algorithm that repeatedly "sorts" pivot values
 * [quicksort - compact](https://github.com/jhanink/code-samples/blob/master/quicksort-compact.js)
 
 ## `merge sort`
+
+Merge sort is a divide-and-conquer algorithm that divides a list by half into left and right subarrays until the size of the subarrays are length 1. It then pair-wise merges left and right subarrays to form a sorted result. The merges continue until the entire set is rebuilt into a single sorted array.
+
+* [merge sort - efficient](https://github.com/jhanink/algorithm-things/blob/master/mergesort.js)
+* [merge sort - compact](https://github.com/jhanink/algorithm-things/blob/master/mergesort-compact.js)
