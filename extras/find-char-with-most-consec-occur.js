@@ -3,7 +3,7 @@ var findCharWithMostConsecOccur = function (str) {
   var cur = {c: undefined, n:0};
   var prev = undefined;
   for (var i=0;i<str.length;i++) {
-    cur.c = str.substring(i,i+1);
+    cur.c = str.charAt(i);
     if (!prev || prev === cur.c) {
       cur.n = cur.n + 1; 
     } else {
