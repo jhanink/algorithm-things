@@ -1,12 +1,11 @@
 var findCharWithMostConsecOccur = function (str) {
   var max = {c: null, n:0};
   var cur = {c: null, n:0};
-  var prev = null;
   for (var i=0;i<str.length;i++) {
-    cur.c = str.charAt(i);
-    cur.n = (prev === cur.c) ? cur.n+1 : 1;
+    var next = str.charAt(i);
+    cur.n = (next === cur.c) ? cur.n+1 : 1;
+    cur.c = next;
     max = (cur.n>max.n) ? {c:cur.c, n:cur.n} : max;
-    prev = cur.c;
   }
   var result = {};
   result[max.c] = max.n;
