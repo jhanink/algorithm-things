@@ -4,8 +4,8 @@ var findCharWithMostConsecOccur = function (str) {
   var prev = undefined;
   for (var i=0;i<str.length;i++) {
     cur.c = str.charAt(i);
-    if (!prev || prev === cur.c) {
-      cur.n = cur.n + 1; 
+    if (prev === cur.c) {
+      cur.n++; 
     } else {
       cur.n = 1;
     }
