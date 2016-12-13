@@ -2,13 +2,8 @@
 var fib = function(n) {
   var memo = {};
   var fibb = function(n) {
-    if (n === 0) return 0;
-    if (n === 1) return 1;
-    var f = memo[n];
-    if (typeof(f) === 'undefined') {
-      memo[n] = fibb(n-1) + fibb(n-2);
-    }
-    return memo[n];
+    if (n < 2) return n;
+    return memo[n] = memo[n] || fibb(n-1) + fibb(n-2);
   };
   return fibb(n);
 }
